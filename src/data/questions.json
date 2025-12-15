@@ -1,0 +1,473 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Japanese Anime &amp; Manga",
+      "question": "Who is the main character in One Piece?",
+      "correct_answer": "Luffy",
+      "incorrect_answers": ["Shanks", "Zoro", "Smoker"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Video Games",
+      "question": "In Night in the Woods, which instrument did Casey play?",
+      "correct_answer": "Drums",
+      "incorrect_answers": ["Bass", "Piano", "Sax"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "Who is the founder of Team Fortress 2&#039;s fictional company &quot;Mann Co&quot;?",
+      "correct_answer": "Zepheniah Mann",
+      "incorrect_answers": ["Cave Johnson", "Wallace Breem", "Saxton Hale"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Comics",
+      "question": "In what Homestuck Update was [S] Game Over released?",
+      "correct_answer": "October 25th, 2014",
+      "incorrect_answers": [
+        "April 13th, 2009",
+        "April 8th, 2012",
+        "August 28th, 2003"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Music",
+      "question": "What is Brian May&#039;s guitar called?",
+      "correct_answer": "Red Special",
+      "incorrect_answers": ["Blue Special", "Green Special", "Yellow Special"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Video Games",
+      "question": "In the game Call of Duty, what is the last level where you play as an American soldier?",
+      "correct_answer": "Festung Recogne",
+      "incorrect_answers": ["Ste. Mere-Eglise (Day)", "Chateau", "Brecourt"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Board Games",
+      "question": "In poker, &quot;EV&quot; means what?",
+      "correct_answer": "Expected Value",
+      "incorrect_answers": [
+        "Equity Value",
+        "Equivalent Variation",
+        "Equity Variation"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "Which of the following Zelda games did not feature Ganon as a final boss?",
+      "correct_answer": "Majora&#039;s Mask",
+      "incorrect_answers": [
+        "Ocarina of Time",
+        "Skyward Sword",
+        "Breath of the Wild"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Animals",
+      "question": "By definition, where does an abyssopelagic animal live?",
+      "correct_answer": "At the bottom of the ocean",
+      "incorrect_answers": [
+        "In the desert",
+        "On top of a mountain",
+        "Inside a tree"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Books",
+      "question": "Which famous spy novelist wrote the childrens&#039; story &quot;Chitty-Chitty-Bang-Bang&quot;?",
+      "correct_answer": "Ian Fleming",
+      "incorrect_answers": ["Joseph Conrad", "John Buchan", "Graham Greene"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "General Knowledge",
+      "question": "If you planted the seeds of Quercus robur, what would grow?",
+      "correct_answer": "Trees",
+      "incorrect_answers": ["Grains", "Vegetables", "Flowers"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Mythology",
+      "question": "Who was the Roman god of fire?",
+      "correct_answer": "Vulcan",
+      "incorrect_answers": ["Apollo", "Jupiter", "Mercury"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "Which of 2 Valve Games are set in the same universe?",
+      "correct_answer": "Half-life and Portal",
+      "incorrect_answers": [
+        "Portal and Left 4 Dead",
+        "Half-life and Left 4 Dead",
+        "Half-life and Counter Strike"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Video Games",
+      "question": "What programming language does the Source Engine use?",
+      "correct_answer": "C++ ",
+      "incorrect_answers": ["Python", "Java", "Lua"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "History",
+      "question": "Who was the first explorer to sail to North America?",
+      "correct_answer": "Leif Erikson",
+      "incorrect_answers": [
+        "Christopher Columbus",
+        "Amerigo Vespucci",
+        "Ferdinand Magellan"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "Half-Life by Valve uses the GoldSrc game engine, which is a highly modified version of what engine?",
+      "correct_answer": "Quake Engine",
+      "incorrect_answers": ["Doom Engine", "id Engine", "Source Engine"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "What Nationality is D.Va from Overwatch?",
+      "correct_answer": "Korean",
+      "incorrect_answers": ["Japanese", "Chinese", "Vietnamese "]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "General Knowledge",
+      "question": "This field is sometimes known as &ldquo;The Dismal Science.&rdquo;",
+      "correct_answer": "Economics",
+      "incorrect_answers": ["Philosophy", "Politics", "Physics"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Comics",
+      "question": "In Calvin and Hobbes, what is the name of the principal at Calvin&#039;s school?",
+      "correct_answer": "Mr. Spittle",
+      "incorrect_answers": ["Mr. Boreman", "Mr. Spitling", "Mr. Moe"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "Which of the three astronauts of the Apollo 11 spaceflight did NOT walk on the moon?",
+      "correct_answer": "Michael Collins",
+      "incorrect_answers": ["Buzz Aldrin", "Neil Armstrong", "None of them"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Computers",
+      "question": "In programming, the ternary operator is mostly defined with what symbol(s)?",
+      "correct_answer": "?:",
+      "incorrect_answers": ["??", "if then", "?"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Film",
+      "question": "At the end of the 2001 film &quot;Rat Race&quot;, whose concert do the contestants crash?",
+      "correct_answer": "Smash Mouth",
+      "incorrect_answers": ["Bowling for Soup", "Sum 41", "Linkin Park"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Video Games",
+      "question": "What was the original release date of Grand Theft Auto V?",
+      "correct_answer": "September 17, 2013",
+      "incorrect_answers": [
+        "August 17, 2013",
+        "April 14, 2015",
+        "November 18, 2014"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Japanese Anime &amp; Manga",
+      "question": "In the anime Noragami who is one of the main protagonists?",
+      "correct_answer": "Yukine",
+      "incorrect_answers": ["Karuha", "Mineha", "Mayu"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Music",
+      "question": "What was the last Aphex Twin album released before his decade-long hiatus?",
+      "correct_answer": "Drukqs",
+      "incorrect_answers": [
+        "Windowlicker",
+        "Syro",
+        "Collected Ambient Works 85-92"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "In the &quot;Half-Life&quot; series, &quot;H.E.V&quot; stands for &quot;Hazardous Evasiveness Vest&quot;",
+      "correct_answer": "False",
+      "incorrect_answers": ["True"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Television",
+      "question": "Who was the winner of the 2016 WWE Royal Rumble?",
+      "correct_answer": "Triple H",
+      "incorrect_answers": ["Roman Reigns", "AJ Styles", "Dean Ambrose"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "The acronym DOTA stands for",
+      "correct_answer": "Defense of the Ancients",
+      "incorrect_answers": [
+        "Defense of the Artifacts",
+        "Defense of the Antiques",
+        "Defense of the Animated"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Geography",
+      "question": "What is the capital of Wisconsin, USA?",
+      "correct_answer": "Madison",
+      "incorrect_answers": ["Milwaukee", "Wisconsin Dells", "Green Bay"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science &amp; Nature",
+      "question": "How many objects are equivalent to one mole?",
+      "correct_answer": "6.022 x 10^23",
+      "incorrect_answers": ["6.002 x 10^22", "6.022 x 10^22", "6.002 x 10^23"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "General Knowledge",
+      "question": "Where does water from Poland Spring water bottles come from?",
+      "correct_answer": "Maine, United States",
+      "incorrect_answers": [
+        "Hesse, Germany",
+        "Masovia, Poland",
+        "Bavaria, Poland"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Geography",
+      "question": "What is the name of the ocean that Hawaii is located in?",
+      "correct_answer": "Pacific",
+      "incorrect_answers": ["Atlantic", "Indian", "Arctic"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Film",
+      "question": "In the Mad Max franchise, what type of car is the Pursuit Special driven by Max?",
+      "correct_answer": "Ford Falcon",
+      "incorrect_answers": [
+        "Holden Monaro",
+        "Chrysler Valiant Charger",
+        "Pontiac Firebird"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "medium",
+      "category": "General Knowledge",
+      "question": "Crystal Pepsi was first sold in US markets in 1993.",
+      "correct_answer": "False",
+      "incorrect_answers": ["True"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Geography",
+      "question": "What is the official national language of Pakistan?",
+      "correct_answer": "Urdu",
+      "incorrect_answers": ["Indian", "Punjabi", "Pashto"]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "easy",
+      "category": "History",
+      "question": "The Cold War ended with Joseph Stalin&#039;s death.",
+      "correct_answer": "False",
+      "incorrect_answers": ["True"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Video Games",
+      "question": "In Call of Duty: Modern Warfare 2, how many consecutive kills does it require to earn the &quot;Tactical Nuke&quot; killstreak?",
+      "correct_answer": "25",
+      "incorrect_answers": ["20", "30", "35"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science &amp; Nature",
+      "question": "When the Falcon Heavy was launched on it&#039;s test flight, what was the only part of the operation that failed?",
+      "correct_answer": "Center Core Landing",
+      "incorrect_answers": [
+        "Side Booster Landing",
+        "Deployment of Starman",
+        "Ignition and Liftoff"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Animals",
+      "question": "The dish Fugu, is made from what family of fish?",
+      "correct_answer": "Pufferfish",
+      "incorrect_answers": ["Bass", "Salmon", "Mackerel"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Comics",
+      "question": "Which of the following superheros did Wonder Woman NOT have a love interest in?",
+      "correct_answer": "Green Arrow",
+      "incorrect_answers": ["Superman", "Batman", "Steve Trevor"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "In Half-Life, what is the name of the alien that attaches to heads?",
+      "correct_answer": "Headcrab",
+      "incorrect_answers": ["Bullsquid", "Vortigaunt", "Facehugger"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Board Games",
+      "question": "What Magic: The Gathering card&#039;s flavor text is just &#039;Ribbit.&#039;?",
+      "correct_answer": "Turn to Frog",
+      "incorrect_answers": ["Spore Frog", "Bloated Toad", "Frogmite"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Board Games",
+      "question": "About how many Slinkys were sold in their first 60 years (from 1945 to 2005)?",
+      "correct_answer": "300 Million",
+      "incorrect_answers": ["100 Million", "450 Million", "1 Billion"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "History",
+      "question": "What date was the first flight of the P-40 Warhawk?",
+      "correct_answer": "October 14 1938",
+      "incorrect_answers": ["August 21 1939", "January 12 1940", "June 1 1939"]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Video Games",
+      "question": "When was Club Penguin launched?",
+      "correct_answer": "October 24, 2005",
+      "incorrect_answers": [
+        "October 21, 2005",
+        "March 29, 2006",
+        "November 22, 2004"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Science &amp; Nature",
+      "question": "What does DNA stand for?",
+      "correct_answer": "Deoxyribonucleic Acid",
+      "incorrect_answers": [
+        "Deoxyribogenetic Acid",
+        "Deoxyribogenetic Atoms",
+        "Detoxic Acid"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Sports",
+      "question": "Who won the 2016 Formula 1 World Driver&#039;s Championship?",
+      "correct_answer": "Nico Rosberg",
+      "incorrect_answers": [
+        "Lewis Hamilton",
+        "Max Verstappen",
+        "Kimi Raikkonen"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "History",
+      "question": "In addition to his career as an astrologer and &quot;prophet&quot;, Nostradamus published a 1555 treatise that included a section on what?",
+      "correct_answer": "Making jams and jellies",
+      "incorrect_answers": [
+        "Teaching parrots to talk",
+        "Cheating at card games",
+        "Digging graves"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Video Games",
+      "question": "What was the first Call of Duty game to include the Zombies gamemode?",
+      "correct_answer": "Call of Duty: World at War",
+      "incorrect_answers": [
+        "Call of Duty: Black Ops",
+        "Call of Duty: Modern Warfare 2",
+        "Call of Duty: Black Ops III"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "Who is the main protagonist in Danganronpa 2: Goodbye Despair?",
+      "correct_answer": "Hajime Hinata",
+      "incorrect_answers": ["Nagito Komaeda", "Makoto Naegi", "Junko Enoshima"]
+    }
+  ]
+}
