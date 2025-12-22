@@ -1,9 +1,9 @@
 import type { QuizState } from '@/types';
 
-export const setItem = (key: string, value: QuizState) => {
+export const setItem = (key: string, state: QuizState) => {
   try {
-    if (value.status === 'idle') window.sessionStorage.removeItem(key);
-    else window.sessionStorage.setItem(key, JSON.stringify(value));
+    if (state.questions.length === 0) localStorage.removeItem(key);
+    else localStorage.setItem(key, JSON.stringify(state));
   } catch (err) {
     console.error(err);
   }
@@ -11,7 +11,7 @@ export const setItem = (key: string, value: QuizState) => {
 
 export const getItem = (key: string): QuizState | undefined => {
   try {
-    const item = window.sessionStorage.getItem(key);
+    const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : undefined;
   } catch (err) {
     console.error(err);
