@@ -1,6 +1,6 @@
-import { useCategories } from '@/api/use-categories';
 import type { QuizSettings } from '@/types';
-import { ErrorMessage } from './error-message';
+import type { ChangeEvent } from 'react';
+import { Categories } from './categories';
 
 interface QuizFormProps {
   settings: QuizSettings;
@@ -15,11 +15,12 @@ export const QuizForm = ({
   onStart,
   isLoading,
 }: QuizFormProps) => {
-  const { categories, isError } = useCategories();
-  if (isError)
-    return (
-      <ErrorMessage message="something went wrong when fetching the categories" />
-    );
+  const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) =>
+    onSettingsChange({
+      ...settings,
+      category: e.target.value as QuizSettings['category'],
+    });
+
   return (
     <form>
       <div id="qtype">
@@ -61,28 +62,10 @@ export const QuizForm = ({
         </select>
       </div>
 
-      <div id="category">
-        <label htmlFor="category">Category</label>
-        <select
-          id="category"
-          name="category"
-          defaultValue={settings.category}
-          onChange={(e) =>
-            onSettingsChange({
-              ...settings,
-              category: e.target.value as QuizSettings['category'],
-            })
-          }
-        >
-          <option value="any">any</option>
-          {categories.map(({ id, name }) => (
-            <option value={name} key={id}>
-              {name}
-            </option>
-          ))}
-        </select>
-      </div>
-
+      <Categories
+        onChange={handleCategoryChange}
+        category={settings.category}
+      />
       <div id="amount">
         <label htmlFor="amount">Number of questions</label>
 
