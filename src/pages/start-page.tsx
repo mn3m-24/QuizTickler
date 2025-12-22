@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import useQuiz from '@/hooks/use-quiz-context';
 import type { QuizSettings } from '@/types';
 import { useQuestions } from '@/api/use-questions';
@@ -14,20 +14,15 @@ const StartPage = () => {
   const [isReady, setIsReady] = useState<boolean>(false);
 
   const { dispatch } = useQuiz();
-  const { questions, isLoading, isError } = useQuestions(settings, isReady);
+  const { isLoading, error } = useQuestions(settings, isReady, {
+    onSuccess: (data) =>
+      dispatch({ type: 'START', payload: { questions: data } }),
+  });
 
-  useEffect(() => {
-    if (isError) {
-      setIsReady(false); // Reset switch so we can click again
-      alert('Failed to fetch questions. Please try again.'); // Simple feedback
-    }
-  }, [isError]);
-
-  useEffect(() => {
-    if (questions && questions.length > 0) {
-      dispatch({ type: 'START', payload: { questions } });
-    }
-  }, [questions, dispatch]);
+  if (error && isReady) {
+    setIsReady(false); // Reset switch so we can click again
+    alert('Failed to fetch questions. Please try again.'); // Simple feedback
+  }
 
   const handleStart = useCallback(() => {
     setIsReady(true);
