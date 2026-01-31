@@ -1,4 +1,4 @@
-import type { QuizSettings } from '@/types';
+import type { QuizSettings } from '@/types/quiz';
 
 export const createParams = (urlStr: string, settings: QuizSettings) => {
   const url = new URL(urlStr);

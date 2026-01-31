@@ -1,7 +1,11 @@
-import type { APIQuestion, Question } from '@/types';
+import type { OpenTDBQuestion } from '@/types/api';
+import type { Question } from '@/types/question';
+
 import decodeHtml from './decode-html';
 
-export const normalizeQuestions = (questions: APIQuestion[]): Question[] => {
+export const normalizeQuestions = (
+  questions: OpenTDBQuestion[]
+): Question[] => {
   return questions.map(
     (q) =>
       ({
@@ -9,8 +13,8 @@ export const normalizeQuestions = (questions: APIQuestion[]): Question[] => {
         difficulty: decodeHtml(q.difficulty),
         category: decodeHtml(q.category),
         question: decodeHtml(q.question),
-        correct_answer: decodeHtml(q.correct_answer),
-        answers: shuffleArr([q.correct_answer, ...q.incorrect_answers]),
+        correctAnswer: decodeHtml(q.correct_answer),
+        options: shuffleArr([q.correct_answer, ...q.incorrect_answers]),
       }) as Question
   );
 };

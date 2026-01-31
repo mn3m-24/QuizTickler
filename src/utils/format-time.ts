@@ -1,7 +1,8 @@
 const formatTime = (milliseconds: number) => {
+  const totalSeconds = Math.ceil(milliseconds / 1000);
   return {
-    minutes: Math.floor(milliseconds / (60 * 1000)),
-    seconds: Math.floor((milliseconds % (60 * 1000)) / 1000),
+    minutes: Math.floor(totalSeconds / 60),
+    seconds: totalSeconds % 60,
   };
 };
 
