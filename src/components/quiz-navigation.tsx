@@ -1,22 +1,17 @@
-import type { Question } from '@/types';
+import useQuizStore from '@/store/use-quiz-store';
 
-interface QuizNavigationProps {
-  questions: Question[];
-  onJump: (questionIdx: number) => void;
-  currentQuestionIndex: number;
-}
-
-const QuizNavigation = ({
-  questions,
-  onJump,
-  currentQuestionIndex,
-}: QuizNavigationProps) => {
+const QuizNavigation = () => {
+  const questions = useQuizStore((state) => state.questions);
+  const currentQuestionIndex = useQuizStore(
+    (state) => state.currentQuestionIndex
+  );
+  const jumpToQuestion = useQuizStore((state) => state.jumpToQuestion);
   return (
     <div className="quiz-navigation">
       {questions.map((q, i) => (
         <button
-          key={q.question}
-          onClick={() => onJump(i)}
+          key={i}
+          onClick={() => jumpToQuestion(i)}
           style={
             i === currentQuestionIndex
               ? {

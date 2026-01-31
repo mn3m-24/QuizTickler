@@ -1,13 +1,14 @@
 import useCountdown from '@/hooks/use-countdown';
+import useQuizStore from '@/store/use-quiz-store';
 import formatTime from '@/utils/format-time';
 
 interface QuizTimerProps {
-  endTime: number;
   onEnd: () => void;
 }
 
-const QuizTimer = ({ endTime, onEnd }: QuizTimerProps) => {
-  const timeLeft = useCountdown(endTime, onEnd);
+const QuizTimer = ({ onEnd }: QuizTimerProps) => {
+  const endTime = useQuizStore((state) => state.endTime);
+  const timeLeft = useCountdown(endTime ?? 0, onEnd);
   const isUrgent = timeLeft <= 10000;
 
   const { seconds, minutes } = formatTime(timeLeft);

@@ -1,31 +1,29 @@
-import type { Question } from '@/types';
+import useQuizStore from '@/store/use-quiz-store';
 import decodeHtml from '@/utils/decode-html';
 
-interface ReviewQuestionsProps {
-  questions: Question[];
-  userAnswers: Record<number, string>;
-}
-
-const ReviewQuestions = ({ questions, userAnswers }: ReviewQuestionsProps) => {
+const ReviewQuestions = () => {
+  const questions = useQuizStore((state) => state.questions);
+  const answers = useQuizStore((state) => state.answers);
   return (
     <div>
       {questions.map((q, i) => (
-        <details>
+        <details key={i}>
           <summary>
             {i + 1}. {decodeHtml(q.question)}{' '}
-            {userAnswers[i] === undefined
+            {answers[i] === undefined
               ? '⚫Skipped'
-              : userAnswers[i] === q.correct_answer
+              : answers[i] === q.correctAnswer
                 ? '✅Correct'
                 : '❌Wrong'}
           </summary>
-          {q.answers.map((ans) => (
+          {q.options.map((opt) => (
             <div
+              key={opt}
               style={
-                ans === q.correct_answer ? { color: 'green' } : { color: 'red' }
+                opt === q.correctAnswer ? { color: 'green' } : { color: 'red' }
               }
             >
-              {decodeHtml(ans)}
+              {decodeHtml(opt)}
             </div>
           ))}
         </details>
