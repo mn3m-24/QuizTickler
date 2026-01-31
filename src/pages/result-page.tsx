@@ -1,16 +1,14 @@
-import { useMemo } from 'react';
-import ReviewQuestions from '@/components/review-questions';
-import useQuiz from '@/hooks/use-quiz-context';
+import ReviewQuestions from "@/components/review-questions";
+import useQuizStore from "@/store/use-quiz-store";
 
 const ResultPage = () => {
-  const {
-    state: { questions, answers },
-    dispatch,
-  } = useQuiz();
-
-  const correctCnt = useMemo(() => {
-    return questions.filter((q, i) => q.correct_answer === answers[i]).length;
-  }, [questions, answers]);
+  const questionsLength = useQuizStore((state) => state.questions.length);
+  const correctCount = useQuizStore(
+    (state) =>
+      state.questions.filter((q, i) => q.correctAnswer === state.answers[i])
+        .length
+  );
+  const restart = useQuizStore((state) => state.restart);
 
   return (
     <div>
@@ -20,13 +18,13 @@ const ResultPage = () => {
       </div>
 
       <div>
-        <span>{((correctCnt / questions.length) * 100).toFixed(2)}%</span>{' '}
+        <span>{((correctCount / questionsLength) * 100).toFixed(2)}%</span>{" "}
         <span>
-          {correctCnt} / {questions.length}
+          {correctCount} / {questionsLength}
         </span>
       </div>
-      <ReviewQuestions questions={questions} userAnswers={answers} />
-      <button onClick={() => dispatch({ type: 'RESTART' })}>restart</button>
+      <ReviewQuestions />
+      <button onClick={restart}>restart</button>
     </div>
   );
 };

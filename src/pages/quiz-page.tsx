@@ -1,89 +1,54 @@
-import { useCallback, useState, type ChangeEvent } from 'react';
-import QuizTimer from '@/components/quiz-timer';
-import useQuiz from '@/hooks/use-quiz-context';
-import QuestionCard from '@/components/question-card';
-import QuizNavigation from '@/components/quiz-navigation';
-import SubmitModal from '@/components/submit-modal';
+import { useCallback, useState } from "react";
+import QuizTimer from "@/components/quiz-timer";
+import useQuizStore from "@/store/use-quiz-store";
+import QuestionCard from "@/components/question-card";
+import QuizNavigation from "@/components/quiz-navigation";
+import SubmitModal from "@/components/submit-modal";
 
 const QuizPage = () => {
-  const {
-    state: { questions, currentQuestionIndex, answers, endTime },
-    dispatch,
-  } = useQuiz();
+  const questionsLength = useQuizStore((state) => state.questions.length);
+  const currentQuestionIndex = useQuizStore(
+    (state) => state.currentQuestionIndex
+  );
+  const hasTimerStarted = useQuizStore((state) => !!state.endTime);
+
+  const submit = useQuizStore((state) => state.submit);
+  const jumpToQuestion = useQuizStore((state) => state.jumpToQuestion);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleSubmitClick = () => {
-    setIsModalOpen(true);
-  };
   // using callback because handleConfirmSubmit function is passed as a prop, so its reference change on each QuizPage re-render because it is used in an useEffect
   const handleConfirmSubmit = useCallback(() => {
-    dispatch({
-      type: 'SUBMIT',
-    });
+    submit();
     setIsModalOpen(false); // close modal after submitting
-  }, [dispatch]);
+  }, [submit]);
 
-  const handleJump = useCallback(
-    (questionIdx: number) => {
-      dispatch({
-        type: 'JUMP_TO_QUESTION',
-        payload: { questionIdx },
-      });
-    },
-    [dispatch]
-  );
-
-  const handleAnswer = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      dispatch({
-        type: 'ANSWER_QUESTION',
-        payload: {
-          answer: e.target.value,
-          questionIdx: currentQuestionIndex,
-        },
-      });
-    },
-    [dispatch, currentQuestionIndex]
-  );
-
-  const currQuestion = questions[currentQuestionIndex];
-  const currAns = answers[currentQuestionIndex];
-  const isLastQuestion = currentQuestionIndex === questions.length - 1;
-  const isFirstQuestion = currentQuestionIndex === 0;
+  const isLastQuestion = currentQuestionIndex === questionsLength - 1;
 
   return (
     <main>
-      {endTime && <QuizTimer endTime={endTime} onEnd={handleConfirmSubmit} />}
-      <QuizNavigation
-        questions={questions}
-        currentQuestionIndex={currentQuestionIndex}
-        onJump={handleJump}
-      />
+      {hasTimerStarted && <QuizTimer onEnd={handleConfirmSubmit} />}
+      <QuizNavigation />
       <div>
-        <QuestionCard
-          question={currQuestion}
-          answer={currAns}
-          onAnswer={handleAnswer}
-        />
+        <QuestionCard />
         <button
-          disabled={isFirstQuestion}
-          onClick={() => handleJump(currentQuestionIndex - 1)}
+          disabled={currentQuestionIndex === 0}
+          onClick={() => jumpToQuestion(currentQuestionIndex - 1)}
         >
           Previous
         </button>
         <button
           onClick={
             isLastQuestion
-              ? handleSubmitClick
-              : () => handleJump(currentQuestionIndex + 1)
+              ? () => setIsModalOpen(true)
+              : () => jumpToQuestion(currentQuestionIndex + 1)
           }
         >
-          {isLastQuestion ? 'Submit' : 'Next'}
+          {isLastQuestion ? "Submit" : "Next"}
         </button>
         <SubmitModal
           isOpen={isModalOpen}
           onCancel={() => setIsModalOpen(false)}
           onConfirm={handleConfirmSubmit}
-          unansweredCount={questions.length - Object.keys(answers).length}
         />
       </div>
     </main>

@@ -1,39 +1,37 @@
-import { useCallback, useState } from 'react';
-import useQuiz from '@/hooks/use-quiz-context';
-import type { QuizSettings } from '@/types';
-import { useQuestions } from '@/api/use-questions';
-import { QuizForm } from '@/components/quiz-form';
+import { useState } from "react";
+import type { QuizSettings } from "@/types/quiz";
+import { useQuestions } from "@/api/use-questions";
+import { QuizForm } from "@/components/quiz-form";
+import useQuizStore from "@/store/use-quiz-store";
 
 const StartPage = () => {
   const [settings, setSettings] = useState<QuizSettings>({
-    type: 'any',
-    difficulty: 'any',
-    category: 'any',
+    type: "any",
+    difficulty: "any",
+    category: "any",
     amount: 10,
   });
-  const [isReady, setIsReady] = useState<boolean>(false);
 
-  const { dispatch } = useQuiz();
-  const { isLoading, error } = useQuestions(settings, isReady, {
-    onSuccess: (data) =>
-      dispatch({ type: 'START', payload: { questions: data } }),
+  const [isReady, setIsReady] = useState<boolean>(false); // flag for fetching questions & starting the quiz
+
+  const startQuiz = useQuizStore((state) => state.startQuiz);
+
+  const { isLoading } = useQuestions(settings, isReady, {
+    onSuccess: (data) => {
+      startQuiz(data);
+    },
+    onError: () => {
+      setIsReady(false);
+      alert("Failed to fetch questions. Please try again."); // Simple feedback
+    },
   });
 
-  if (error && isReady) {
-    setIsReady(false); // Reset switch so we can click again
-    alert('Failed to fetch questions. Please try again.'); // Simple feedback
-  }
-
-  const handleStart = useCallback(() => {
-    setIsReady(true);
-  }, []);
-
   return (
-    <div className="start-page" style={{ display: 'flex', gap: '10px' }}>
+    <div className="start-page" style={{ display: "flex", gap: "10px" }}>
       <QuizForm
         settings={settings}
         onSettingsChange={setSettings}
-        onStart={handleStart}
+        onStart={() => setIsReady(true)}
         isLoading={isLoading}
       />
     </div>
