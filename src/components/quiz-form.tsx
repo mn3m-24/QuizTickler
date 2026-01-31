@@ -1,5 +1,4 @@
-import type { QuizSettings } from '@/types';
-import type { ChangeEvent } from 'react';
+import type { QuizSettings } from '@/types/quiz';
 import { Categories } from './categories';
 
 interface QuizFormProps {
@@ -15,26 +14,24 @@ export const QuizForm = ({
   onStart,
   isLoading,
 }: QuizFormProps) => {
-  const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) =>
-    onSettingsChange({
-      ...settings,
-      category: e.target.value as QuizSettings['category'],
-    });
+  const updateSettings = <k extends keyof QuizSettings>(
+    key: k,
+    value: QuizSettings[k]
+  ) => onSettingsChange({ ...settings, [key]: value });
 
   return (
-    <form>
-      <div id="qtype">
-        <label htmlFor="type">Question type</label>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onStart();
+      }}
+    >
+      <div className="question-type">
+        <label htmlFor="question-type">Question type</label>
         <select
-          id="type"
-          name="type"
-          defaultValue={settings.type}
-          onChange={(e) =>
-            onSettingsChange({
-              ...settings,
-              type: e.target.value as QuizSettings['type'],
-            })
-          }
+          id="question-type"
+          value={settings.type}
+          onChange={(e) => updateSettings('type', e.target.value)}
         >
           <option value="any">Any</option>
           <option value="multiple">Multiple Choices</option>
@@ -42,18 +39,12 @@ export const QuizForm = ({
         </select>
       </div>
 
-      <div id="difficulty">
+      <div className="difficulty">
         <label htmlFor="difficulty">Difficulty</label>
         <select
           id="difficulty"
-          name="difficulty"
-          defaultValue={settings.difficulty}
-          onChange={(e) =>
-            onSettingsChange({
-              ...settings,
-              difficulty: e.target.value as QuizSettings['difficulty'],
-            })
-          }
+          value={settings.difficulty}
+          onChange={(e) => updateSettings('difficulty', e.target.value)}
         >
           <option value="any">Any</option>
           <option value="easy">Easy</option>
@@ -63,19 +54,16 @@ export const QuizForm = ({
       </div>
 
       <Categories
-        onChange={handleCategoryChange}
+        onChange={(e) => updateSettings('category', e.target.value)}
         category={settings.category}
       />
-      <div id="amount">
+      <div className="amount">
         <label htmlFor="amount">Number of questions</label>
 
         <select
           id="amount"
-          name="amount"
-          defaultValue={settings.amount}
-          onChange={(e) =>
-            onSettingsChange({ ...settings, amount: parseInt(e.target.value) })
-          }
+          value={settings.amount}
+          onChange={(e) => updateSettings('amount', parseInt(e.target.value))}
         >
           {[5, 10, 15, 20].map((a, i) => (
             <option value={a} key={i}>
@@ -85,7 +73,7 @@ export const QuizForm = ({
         </select>
       </div>
       {/* TODO Make submitting start the quiz with timer */}
-      <button type="button" onClick={onStart} disabled={isLoading}>
+      <button type="submit" disabled={isLoading}>
         {isLoading ? 'Loading...' : 'Start Quiz'}
       </button>
     </form>

@@ -15,11 +15,11 @@ export const Categories = ({ onChange, category }: CategoriesProps) => {
     );
   if (isLoading) return <h1>Loading...</h1>;
   return (
-    <div id="category">
-      <label htmlFor="category">Category</label>
+    <div className="category">
+      <label htmlFor="category-select">Category</label>
       <select
         disabled={isLoading}
-        id="category"
+        id="category-select"
         name="category"
         value={category}
         onChange={onChange}
