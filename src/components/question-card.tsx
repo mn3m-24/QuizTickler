@@ -1,5 +1,5 @@
-import useQuizStore from '@/store/use-quiz-store';
-import decodeHtml from '@/utils/decode-html';
+import useQuizStore from "@/store/use-quiz-store";
+import decodeHtml from "@/utils/decode-html";
 
 const QuestionCard = () => {
   const currentQuestionIndex = useQuizStore(

@@ -1,18 +1,18 @@
-import useQuizStore from './store/use-quiz-store';
-import QuizPage from '@/pages/quiz-page';
-import ResultPage from '@/pages/result-page';
-import StartPage from '@/pages/start-page';
+import useQuizStore from "./store/use-quiz-store";
+import QuizPage from "@/pages/quiz-page";
+import ResultPage from "@/pages/result-page";
+import StartPage from "@/pages/start-page";
 
 function App() {
   const status = useQuizStore((state) => state.status);
   switch (status) {
-    case 'idle':
+    case "idle":
       return <StartPage />;
     // case "loading":
     //   return <LoadingSpinner />;
-    case 'active':
+    case "active":
       return <QuizPage />;
-    case 'completed':
+    case "completed":
       return <ResultPage />;
     default:
       return <StartPage />;

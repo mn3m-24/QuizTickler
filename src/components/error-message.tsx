@@ -5,7 +5,7 @@ type ErrorMessageProps = {
 export const ErrorMessage = ({ message }: ErrorMessageProps) => {
   if (!message) return null;
   return (
-    <p role="alert" style={{ color: 'red' }}>
+    <p role="alert" style={{ color: "red" }}>
       {message}
     </p>
   );

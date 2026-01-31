@@ -1,4 +1,4 @@
-import type { QuestionType, QuestionDifficulty } from './question';
+import type { QuestionType, QuestionDifficulty } from "./question";
 
 export type OpenTDBQuestion = {
   type: QuestionType;

@@ -1,5 +1,5 @@
-import useQuizStore from '@/store/use-quiz-store';
-import { useEffect, useRef } from 'react';
+import useQuizStore from "@/store/use-quiz-store";
+import { useEffect, useRef } from "react";
 
 interface SubmitModalProps {
   isOpen: boolean;
@@ -28,7 +28,7 @@ const SubmitModal = ({ isOpen, onCancel, onConfirm }: SubmitModalProps) => {
         <p>
           {unansweredCount > 0
             ? `You have ${unansweredCount} unanswered questions. They will be marked as incorrect.`
-            : 'Are you sure you want to submit your answers?'}
+            : "Are you sure you want to submit your answers?"}
         </p>
         <div>
           <button onClick={onCancel}>Cancel</button>

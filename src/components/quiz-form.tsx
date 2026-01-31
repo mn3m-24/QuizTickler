@@ -1,5 +1,5 @@
-import type { QuizSettings } from '@/types/quiz';
-import { Categories } from './categories';
+import type { QuizSettings } from "@/types/quiz";
+import { Categories } from "./categories";
 
 interface QuizFormProps {
   settings: QuizSettings;
@@ -31,7 +31,7 @@ export const QuizForm = ({
         <select
           id="question-type"
           value={settings.type}
-          onChange={(e) => updateSettings('type', e.target.value)}
+          onChange={(e) => updateSettings("type", e.target.value)}
         >
           <option value="any">Any</option>
           <option value="multiple">Multiple Choices</option>
@@ -44,7 +44,7 @@ export const QuizForm = ({
         <select
           id="difficulty"
           value={settings.difficulty}
-          onChange={(e) => updateSettings('difficulty', e.target.value)}
+          onChange={(e) => updateSettings("difficulty", e.target.value)}
         >
           <option value="any">Any</option>
           <option value="easy">Easy</option>
@@ -54,7 +54,7 @@ export const QuizForm = ({
       </div>
 
       <Categories
-        onChange={(e) => updateSettings('category', e.target.value)}
+        onChange={(e) => updateSettings("category", e.target.value)}
         category={settings.category}
       />
       <div className="amount">
@@ -63,7 +63,7 @@ export const QuizForm = ({
         <select
           id="amount"
           value={settings.amount}
-          onChange={(e) => updateSettings('amount', parseInt(e.target.value))}
+          onChange={(e) => updateSettings("amount", parseInt(e.target.value))}
         >
           {[5, 10, 15, 20].map((a, i) => (
             <option value={a} key={i}>
@@ -74,7 +74,7 @@ export const QuizForm = ({
       </div>
       {/* TODO Make submitting start the quiz with timer */}
       <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Loading...' : 'Start Quiz'}
+        {isLoading ? "Loading..." : "Start Quiz"}
       </button>
     </form>
   );

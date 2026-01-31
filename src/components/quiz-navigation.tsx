@@ -1,4 +1,4 @@
-import useQuizStore from '@/store/use-quiz-store';
+import useQuizStore from "@/store/use-quiz-store";
 
 const QuizNavigation = () => {
   const questions = useQuizStore((state) => state.questions);
@@ -15,8 +15,8 @@ const QuizNavigation = () => {
           style={
             i === currentQuestionIndex
               ? {
-                  backgroundColor: '#0056b3',
-                  boxShadow: 'inset 0 3px 5px rgba(0,0,0,0.3)',
+                  backgroundColor: "#0056b3",
+                  boxShadow: "inset 0 3px 5px rgba(0,0,0,0.3)",
                 }
               : {}
           }

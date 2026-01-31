@@ -1,6 +1,6 @@
-import { useCategories } from '@/api/use-categories';
-import { ErrorMessage } from './error-message';
-import type { ChangeEvent } from 'react';
+import { useCategories } from "@/api/use-categories";
+import { ErrorMessage } from "./error-message";
+import type { ChangeEvent } from "react";
 
 interface CategoriesProps {
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;

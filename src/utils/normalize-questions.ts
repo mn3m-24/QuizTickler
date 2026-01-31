@@ -1,7 +1,7 @@
-import type { OpenTDBQuestion } from '@/types/api';
-import type { Question } from '@/types/question';
+import type { OpenTDBQuestion } from "@/types/api";
+import type { Question } from "@/types/question";
 
-import decodeHtml from './decode-html';
+import decodeHtml from "./decode-html";
 
 export const normalizeQuestions = (
   questions: OpenTDBQuestion[]

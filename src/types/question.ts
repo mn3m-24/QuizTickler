@@ -1,5 +1,5 @@
-export type QuestionDifficulty = 'easy' | 'medium' | 'hard' | 'any';
-export type QuestionType = 'multiple' | 'boolean' | 'any';
+export type QuestionDifficulty = "easy" | "medium" | "hard" | "any";
+export type QuestionType = "multiple" | "boolean" | "any";
 
 export type UserAnswers = { [questionIndex: number]: string };
 
