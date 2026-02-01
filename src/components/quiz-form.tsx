@@ -31,7 +31,9 @@ export const QuizForm = ({
         <select
           id="question-type"
           value={settings.type}
-          onChange={(e) => updateSettings("type", e.target.value)}
+          onChange={(e) =>
+            updateSettings("type", e.target.value as QuizSettings["type"])
+          }
         >
           <option value="any">Any</option>
           <option value="multiple">Multiple Choices</option>
@@ -44,7 +46,12 @@ export const QuizForm = ({
         <select
           id="difficulty"
           value={settings.difficulty}
-          onChange={(e) => updateSettings("difficulty", e.target.value)}
+          onChange={(e) =>
+            updateSettings(
+              "difficulty",
+              e.target.value as QuizSettings["difficulty"]
+            )
+          }
         >
           <option value="any">Any</option>
           <option value="easy">Easy</option>
