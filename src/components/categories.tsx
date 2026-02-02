@@ -26,7 +26,7 @@ export const Categories = ({ onChange, category }: CategoriesProps) => {
       >
         <option value="any">any</option>
         {categories?.map(({ id, name }) => (
-          <option value={name} key={id}>
+          <option value={id} key={id}>
             {name}
           </option>
         ))}
