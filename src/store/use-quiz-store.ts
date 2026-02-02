@@ -52,7 +52,19 @@ const useQuizStore = create<QuizStoreState & QuizStoreActions>()(
         submit: () => set({ status: "completed" }),
         restart: () => set({ ...initialState }),
       }),
-      { name: "quiz-store" }
+      {
+        name: "quiz-store",
+        onRehydrateStorage: () => (state) => {
+          // fixing flickering the quiz page before going to result page on rehydration if the quiz has ended
+          if (
+            state &&
+            state.status === "active" &&
+            state.endTime &&
+            Date.now() > state.endTime
+          )
+            state.status = "completed";
+        },
+      }
     ),
     { name: "quizStore" }
   )
