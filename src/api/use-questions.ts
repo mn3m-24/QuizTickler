@@ -4,6 +4,7 @@ import type { OpenTDBQuestion } from "@/types/api";
 import type { Question } from "@/types/question";
 import type { QuizSettings } from "@/types/quiz";
 import { normalizeQuestions } from "@/utils/normalize-questions";
+import createUrl from "@/utils/create-url";
 
 type OpenTDBResponse = {
   response_code: number;
@@ -18,24 +19,15 @@ const getQuestions = async (url: string): Promise<Question[]> => {
   return normalizeQuestions(data.results);
 };
 
-const createUrl = ({ type, amount, difficulty, category }: QuizSettings) => {
-  const url = new URL("https://opentdb.com/api.php");
-  const params = new URLSearchParams();
-  params.set("amount", amount.toString());
-  if (type !== "any") params.set("type", type);
-  if (difficulty !== "any") params.set("difficulty", difficulty);
-  if (category !== "any") params.set("category", category);
-  url.search = params.toString();
-  return url.toString();
-};
-
 export const useQuestions = (
   settings: QuizSettings,
   enabled: boolean,
   options: SWRConfiguration<Question[]>
 ) => {
-  const key = enabled ? createUrl(settings) : null;
-
+  const key = enabled
+    ? createUrl("https://opentdb.com/api.php", settings)
+    : null;
+  console.log("this is the key: ", key);
   return useSWR<Question[]>(key, getQuestions, {
     revalidateOnFocus: false,
     shouldRetryOnError: false,
