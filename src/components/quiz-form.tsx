@@ -1,6 +1,9 @@
 import type { QuizSettings } from "@/types/quiz";
 import { Categories } from "./categories";
 
+const QUESTION_TYPES = ["boolean", "multiple"] as const;
+const QUESTION_DIFFICULTY = ["easy", "medium", "hard"] as const;
+
 interface QuizFormProps {
   settings: QuizSettings;
   onSettingsChange: (settings: QuizSettings) => void;
@@ -17,7 +20,11 @@ export const QuizForm = ({
   const updateSettings = <k extends keyof QuizSettings>(
     key: k,
     value: QuizSettings[k]
-  ) => onSettingsChange({ ...settings, [key]: value });
+  ) =>
+    onSettingsChange({
+      ...settings,
+      [key]: settings[key] === value ? null : value,
+    });
 
   return (
     <form
@@ -26,58 +33,56 @@ export const QuizForm = ({
         onStart();
       }}
     >
+      <p>Type:</p>
       <div className="question-type">
-        <label htmlFor="question-type">Question type</label>
-        <select
-          id="question-type"
-          value={settings.type}
-          onChange={(e) =>
-            updateSettings("type", e.target.value as QuizSettings["type"])
-          }
-        >
-          <option value="any">Any</option>
-          <option value="multiple">Multiple Choices</option>
-          <option value="boolean">True/False</option>
-        </select>
+        {QUESTION_TYPES.map((type) => (
+          <button
+            key={type}
+            type="button"
+            onClick={() => updateSettings("type", type)}
+            style={settings.type === type ? { backgroundColor: "blue" } : {}}
+          >
+            {type}
+          </button>
+        ))}
+        <output>{settings.type}</output>
       </div>
 
+      <p>Difficulty:</p>
       <div className="difficulty">
-        <label htmlFor="difficulty">Difficulty</label>
-        <select
-          id="difficulty"
-          value={settings.difficulty}
-          onChange={(e) =>
-            updateSettings(
-              "difficulty",
-              e.target.value as QuizSettings["difficulty"]
-            )
-          }
-        >
-          <option value="any">Any</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
+        {QUESTION_DIFFICULTY.map((difficulty) => (
+          <button
+            key={difficulty}
+            type="button"
+            onClick={() => updateSettings("difficulty", difficulty)}
+            style={
+              settings.difficulty === difficulty
+                ? { backgroundColor: "blue" }
+                : {}
+            }
+          >
+            {difficulty}
+          </button>
+        ))}
+        <output>{settings.difficulty}</output>
       </div>
 
       <Categories
-        onChange={(e) => updateSettings("category", e.target.value)}
-        category={settings.category}
+        onSelect={(id: string) => updateSettings("category", id)}
+        selectedCategory={settings.category}
       />
+
       <div className="amount">
         <label htmlFor="amount">Number of questions</label>
 
-        <select
-          id="amount"
+        <input
+          type="range"
+          min={1}
+          max={50}
           value={settings.amount}
           onChange={(e) => updateSettings("amount", parseInt(e.target.value))}
-        >
-          {[5, 10, 15, 20].map((a, i) => (
-            <option value={a} key={i}>
-              {a}
-            </option>
-          ))}
-        </select>
+        />
+        <output>{settings.amount}</output>
       </div>
       {/* TODO Make submitting start the quiz with timer */}
       <button type="submit" disabled={isLoading}>

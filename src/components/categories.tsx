@@ -1,36 +1,34 @@
 import { useCategories } from "@/api/use-categories";
-import { ErrorMessage } from "./error-message";
-import type { ChangeEvent } from "react";
 
-interface CategoriesProps {
-  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  category: string;
+interface CategoriesProp {
+  onSelect: (id: string) => void;
+  selectedCategory: string | null;
 }
-
-export const Categories = ({ onChange, category }: CategoriesProps) => {
+export const Categories = ({ onSelect, selectedCategory }: CategoriesProp) => {
   const { data: categories, error, isLoading } = useCategories();
-  if (error)
-    return (
-      <ErrorMessage message="something went wrong when fetching the categories" />
-    );
+  if (error) return <h1>error from categories.tsx</h1>;
   if (isLoading) return <h1>Loading...</h1>;
   return (
     <div className="category">
-      <label htmlFor="category-select">Category</label>
-      <select
-        disabled={isLoading}
-        id="category-select"
-        name="category"
-        value={category}
-        onChange={onChange}
-      >
-        <option value="any">any</option>
-        {categories?.map(({ id, name }) => (
-          <option value={id} key={id}>
-            {name}
-          </option>
-        ))}
-      </select>
+      <label>Category</label>
+      {categories?.map(({ id, name }) => (
+        <button
+          type="button"
+          key={id}
+          onClick={() => onSelect(id.toString())}
+          value={id}
+          style={
+            selectedCategory
+              ? selectedCategory === id.toString()
+                ? { backgroundColor: "blue" }
+                : {}
+              : {}
+          }
+        >
+          {name}
+        </button>
+      ))}
+      <output>{selectedCategory}</output>
     </div>
   );
 };
