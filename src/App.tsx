@@ -1,9 +1,10 @@
+import { Toaster } from "sonner";
 import useQuizStore from "./store/use-quiz-store";
 import QuizPage from "@/pages/quiz-page";
 import ResultPage from "@/pages/result-page";
 import StartPage from "@/pages/start-page";
 
-function App() {
+function AppContent() {
   const status = useQuizStore((state) => state.status);
   switch (status) {
     case "idle":
@@ -17,6 +18,19 @@ function App() {
     default:
       return <StartPage />;
   }
+}
+function App() {
+  return (
+    <>
+      <AppContent />
+      <Toaster
+        position="top-center"
+        theme="dark"
+        visibleToasts={3}
+        richColors
+      />
+    </>
+  );
 }
 
 export default App;

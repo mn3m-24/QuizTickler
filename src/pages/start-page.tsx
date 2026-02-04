@@ -3,12 +3,13 @@ import type { QuizSettings } from "@/types/quiz";
 import { useQuestions } from "@/api/use-questions";
 import { QuizForm } from "@/components/quiz-form";
 import useQuizStore from "@/store/use-quiz-store";
+import { toast } from "sonner";
 
 const StartPage = () => {
   const [settings, setSettings] = useState<QuizSettings>({
-    type: "any",
-    difficulty: "any",
-    category: "any",
+    type: null,
+    difficulty: null,
+    category: null,
     amount: 10,
   });
 
@@ -20,9 +21,9 @@ const StartPage = () => {
     onSuccess: (data) => {
       startQuiz(data);
     },
-    onError: () => {
+    onError: (err: Error) => {
       setIsReady(false);
-      alert("Failed to fetch questions. Please try again."); // Simple feedback
+      toast.error(err.message); // Simple feedback
     },
   });
 
