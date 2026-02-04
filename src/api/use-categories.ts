@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { fetcher } from "@/lib/fetcher";
+import fetcher from "@/lib/fetcher";
 
 interface CategoryResponse {
   trivia_categories: { id: number; name: string }[];
