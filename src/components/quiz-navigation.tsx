@@ -1,28 +1,30 @@
 import useQuizStore from "@/store/use-quiz-store";
+import cn from "../utils/cn";
+import Button from "./ui/button";
 
 const QuizNavigation = () => {
   const questions = useQuizStore((state) => state.questions);
   const currentQuestionIndex = useQuizStore(
     (state) => state.currentQuestionIndex
   );
+  const answers = useQuizStore((state) => state.answers)
   const jumpToQuestion = useQuizStore((state) => state.jumpToQuestion);
   return (
-    <div className="quiz-navigation">
-      {questions.map((q, i) => (
-        <button
+    <div className="grid grid-cols-5 gap-2 sm:grid-cols-8 md:grid-cols-10">
+      {questions.map((_q, i) => (
+        <Button
+          variant="secondary"
+          size="sm"
+          className={cn(
+            "aspect-square", // square buttons look
+            Object.hasOwn(answers, i) && "bg-zinc-500/50",
+            i === currentQuestionIndex && "bg-primary text-primary-foreground"
+          )}
           key={i}
           onClick={() => jumpToQuestion(i)}
-          style={
-            i === currentQuestionIndex
-              ? {
-                  backgroundColor: "#0056b3",
-                  boxShadow: "inset 0 3px 5px rgba(0,0,0,0.3)",
-                }
-              : {}
-          }
         >
           {i + 1}
-        </button>
+        </Button>
       ))}
     </div>
   );

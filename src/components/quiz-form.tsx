@@ -1,5 +1,6 @@
 import type { QuizSettings } from "@/types/quiz";
 import { Categories } from "./categories";
+import Button from "./ui/button";
 
 const QUESTION_TYPES = ["boolean", "multiple"] as const;
 const QUESTION_DIFFICULTY = ["easy", "medium", "hard"] as const;
@@ -28,66 +29,66 @@ export const QuizForm = ({
 
   return (
     <form
+      className="flex flex-col items-center justify-around gap-6"
       onSubmit={(e) => {
         e.preventDefault();
         onStart();
       }}
     >
-      <p>Type:</p>
-      <div className="question-type">
-        {QUESTION_TYPES.map((type) => (
-          <button
-            key={type}
-            type="button"
-            onClick={() => updateSettings("type", type)}
-            style={settings.type === type ? { backgroundColor: "blue" } : {}}
-          >
-            {type}
-          </button>
-        ))}
-        <output>{settings.type}</output>
-      </div>
+      <section className="flex flex-col items-center gap-4">
+        <h2>Types</h2>
+        <div className="flex gap-4">
+          {QUESTION_TYPES.map((type) => (
+            <Button
+              variant="secondary"
+              key={type}
+              type="button"
+              onClick={() => updateSettings("type", type)}
+            >
+              {type}
+            </Button>
+          ))}
+        </div>
+      </section>
 
-      <p>Difficulty:</p>
-      <div className="difficulty">
-        {QUESTION_DIFFICULTY.map((difficulty) => (
-          <button
-            key={difficulty}
-            type="button"
-            onClick={() => updateSettings("difficulty", difficulty)}
-            style={
-              settings.difficulty === difficulty
-                ? { backgroundColor: "blue" }
-                : {}
-            }
-          >
-            {difficulty}
-          </button>
-        ))}
-        <output>{settings.difficulty}</output>
-      </div>
+      <section className="flex flex-col items-center gap-4">
+        <h2>Difficulty</h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          {QUESTION_DIFFICULTY.map((difficulty) => (
+            <Button
+              variant="secondary"
+              key={difficulty}
+              type="button"
+              onClick={() => updateSettings("difficulty", difficulty)}
+            >
+              {difficulty}
+            </Button>
+          ))}
+        </div>
+      </section>
 
       <Categories
         onSelect={(id: string) => updateSettings("category", id)}
         selectedCategory={settings.category}
       />
 
-      <div className="amount">
-        <label htmlFor="amount">Number of questions</label>
-
+      <section className="w-full flex flex-col items-center px-4">
+        <div className="flex justify-between w-full text-xl">
+          <h3>number of questions</h3>
+          <h3>{settings.amount}</h3>
+        </div>
         <input
+          className="w-full"
           type="range"
           min={1}
           max={50}
           value={settings.amount}
           onChange={(e) => updateSettings("amount", parseInt(e.target.value))}
         />
-        <output>{settings.amount}</output>
-      </div>
-      {/* TODO Make submitting start the quiz with timer */}
-      <button type="submit" disabled={isLoading}>
+      </section>
+      <Button type="submit" disabled={isLoading}>
         {isLoading ? "Loading..." : "Start Quiz"}
-      </button>
+      </Button>
     </form>
   );
 };

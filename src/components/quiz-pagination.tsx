@@ -1,4 +1,5 @@
 import useQuizStore from "@/store/use-quiz-store";
+import Button from "./ui/button";
 
 interface QuizPaginationProps {
   onOpenSubmit: () => void;
@@ -12,14 +13,17 @@ const QuizPagination = ({ onOpenSubmit }: QuizPaginationProps) => {
   const jumpToQuestion = useQuizStore((state) => state.jumpToQuestion);
   const isLastQuestion = currentQuestionIndex === questionsLength - 1;
   return (
-    <>
-      <button
+    <div className="flex justify-between w-full">
+      <Button
+        variant="secondary"
         disabled={currentQuestionIndex === 0}
         onClick={() => jumpToQuestion(currentQuestionIndex - 1)}
       >
         Previous
-      </button>
-      <button
+      </Button>
+      <Button
+        variant="primary"
+        size="sm"
         onClick={
           isLastQuestion
             ? onOpenSubmit
@@ -27,8 +31,8 @@ const QuizPagination = ({ onOpenSubmit }: QuizPaginationProps) => {
         }
       >
         {isLastQuestion ? "Submit" : "Next"}
-      </button>
-    </>
+      </Button>
+    </div>
   );
 };
 

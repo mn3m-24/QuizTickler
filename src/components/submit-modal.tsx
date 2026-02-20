@@ -1,43 +1,29 @@
-import useQuizStore from "@/store/use-quiz-store";
-import { useEffect, useRef } from "react";
+import Modal from "./ui/modal";
+import Button from "./ui/button";
 
 interface SubmitModalProps {
-  isOpen: boolean;
-  onCancel: () => void;
-  onConfirm: () => void;
+  isModalOpen: boolean;
+  handleCloseModal: () => void;
+  handleSubmit: () => void;
 }
-
-const SubmitModal = ({ isOpen, onCancel, onConfirm }: SubmitModalProps) => {
-  // questions.length - answeredCount
-  const unansweredCount = useQuizStore(
-    (state) => state.questions.length - Object.keys(state.answers).length
-  );
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  // open/close dialog according to the isOpen state
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-    if (isOpen) dialog.showModal();
-    else dialog.close();
-  }, [isOpen]);
-
+const SubmitModal = ({isModalOpen, handleCloseModal, handleSubmit}: SubmitModalProps) => {
   return (
-    <dialog ref={dialogRef} onCancel={onCancel}>
-      <div>
-        <h2>Finish quiz?</h2>
-        <p>
-          {unansweredCount > 0
-            ? `You have ${unansweredCount} unanswered questions. They will be marked as incorrect.`
-            : "Are you sure you want to submit your answers?"}
+    <Modal isOpen={isModalOpen} onClose={handleCloseModal} className="mx-10 rounded p-4 flex flex-col justify-between">
+      <div className="p-6 flex flex-col">
+        <h2 className="text-primary-foreground font-bold">Are you sure?</h2>
+        <p className="text-primary-foreground">
+          Once you submit, you cannot change your answers.
         </p>
-        <div>
-          <button onClick={onCancel}>Cancel</button>
-          <button onClick={onConfirm} autoFocus>
-            Confirm Submit
-          </button>
-        </div>
       </div>
-    </dialog>
+      <div className="flex flex-col gap-2 justify-end sm:flex-row">
+        <Button variant="primary" onClick={handleCloseModal}>
+          Cancel
+        </Button>
+        <Button variant="primary" onClick={handleSubmit}>
+          Confirm
+        </Button>
+      </div>
+    </Modal>
   );
 };
 
