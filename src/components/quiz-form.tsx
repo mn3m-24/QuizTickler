@@ -1,6 +1,7 @@
 import type { QuizSettings } from "@/types/quiz";
 import { Categories } from "./categories";
 import Button from "./ui/button";
+import cn from "@/utils/cn";
 
 const QUESTION_TYPES = ["boolean", "multiple"] as const;
 const QUESTION_DIFFICULTY = ["easy", "medium", "hard"] as const;
@@ -44,6 +45,9 @@ export const QuizForm = ({
               key={type}
               type="button"
               onClick={() => updateSettings("type", type)}
+              className={cn({
+                "bg-blue-500": type == settings.type,
+              })}
             >
               {type}
             </Button>
@@ -60,6 +64,9 @@ export const QuizForm = ({
               key={difficulty}
               type="button"
               onClick={() => updateSettings("difficulty", difficulty)}
+              className={cn({
+                "bg-blue-500": difficulty == settings.difficulty,
+              })}
             >
               {difficulty}
             </Button>
