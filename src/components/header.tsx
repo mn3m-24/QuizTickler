@@ -12,7 +12,11 @@ const Header = () => (
     </div>
     <div className="flex gap-4">
       <ThemeToggle />
-      <a className="px-2 py-2 rounded bg-secondary cursor-pointer transition hover:brightness-90">
+      <a
+        href="https://github.com/mn3m-24/QuizTickler"
+        target="_blank"
+        className="px-2 py-2 rounded bg-secondary cursor-pointer transition hover:brightness-90"
+      >
         <svg
           className="lucide lucide-github-icon lucide-github fill-primary"
           xmlns="http://www.w3.org/2000/svg"
