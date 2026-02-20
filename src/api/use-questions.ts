@@ -43,7 +43,6 @@ export const useQuestions = (
   const key = enabled
     ? createUrl("https://opentdb.com/api.php", settings)
     : null;
-  console.log("this is the key: ", key);
   return useSWR<Question[]>(key, getQuestions, {
     revalidateOnFocus: false,
     shouldRetryOnError: false,
