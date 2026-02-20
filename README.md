@@ -2,16 +2,13 @@
 
 i used the [open trivia api](https://opentdb.com)
 
-## technologies
+## technologies🧑‍💻
 
-UI components -> Reactjs
+- UI components -> Reactjs
 
-State mangagement -> useContext & useReducer
+- State mangagement -> Zustand (previously useContext & useReducer)
 
-Server state mangagement & caching -> useSWR
+- Server state mangagement & caching -> useSWR
 
-Bundler & dev server -> Vite
 
-Linter -> eslint
-
-Formatter -> prettier
+You can try the app from [here](https://quiz-tickler.vercel.app/)
