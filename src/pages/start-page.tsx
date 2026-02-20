@@ -31,7 +31,10 @@ const StartPage = () => {
     <div className="flex-1 flex flex-col justify-center">
       <div className="flex flex-col gap-4 mb-14">
         <h1 className="text-6xl text-center">Let's Get Quizzy</h1>
-        <p className="text-muted-foreground text-center"> Configure your learning session with precision. </p>
+        <p className="text-muted-foreground text-center">
+          {" "}
+          Configure your learning session with precision.{" "}
+        </p>
       </div>
 
       <QuizForm

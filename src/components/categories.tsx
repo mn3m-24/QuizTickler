@@ -18,22 +18,24 @@ export const Categories = ({ onSelect, selectedCategory }: CategoriesProp) => {
       <h2>Category</h2>
       <div className="flex flex-wrap justify-center gap-4">
         {isLoading
-          ? (Array.from({ length: 12 }).map((_, i) => <Skeleton key={i} className="h-9 w-32" aria-hidden="true" />))
+          ? Array.from({ length: 12 }).map((_, i) => (
+              <Skeleton key={i} className="h-9 w-32" aria-hidden="true" />
+            ))
           : categories?.map(({ id, name }) => (
-          <Button
-            variant="secondary"
-            size="sm"
-            className={cn({
-              "bg-blue-500": selectedCategory === id.toString(),
-            })}
-            type="button"
-            key={id}
-            onClick={() => onSelect(id.toString())}
-            value={id}
-          >
-            {name}
-          </Button>
-        ))}
+              <Button
+                variant="secondary"
+                size="sm"
+                className={cn({
+                  "bg-blue-500": selectedCategory === id.toString(),
+                })}
+                type="button"
+                key={id}
+                onClick={() => onSelect(id.toString())}
+                value={id}
+              >
+                {name}
+              </Button>
+            ))}
       </div>
     </section>
   );

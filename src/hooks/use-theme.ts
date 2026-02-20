@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const useTheme = () => {
-  const [dark, setDark] = useState<boolean>(
-    () => document.documentElement.classList.contains("dark")
+  const [dark, setDark] = useState<boolean>(() =>
+    document.documentElement.classList.contains("dark")
   );
   function toggle() {
     const next = !dark;
@@ -11,6 +11,6 @@ const useTheme = () => {
     localStorage.setItem("theme", next ? "dark" : "light");
   }
   return [dark, toggle] as const;
-}
+};
 
 export default useTheme;

@@ -1,5 +1,5 @@
 /* the import directive should always be first */
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -70,7 +70,6 @@
   --border: var(--color-zinc-200);
   --input: var(--color-zinc-200);
   --ring: var(--color-zinc-900);
-
 }
 
 .dark {
@@ -106,12 +105,25 @@
 }
 
 @layer base {
-    html, #root { @apply font-sans; }
+  html,
+  #root {
+    @apply font-sans;
+  }
 
-    body { @apply bg-background text-foreground; }
+  body {
+    @apply bg-background text-foreground;
+  }
 
-    h1 { @apply text-4xl font-bold tracking-tight; }
-    h2 { @apply text-3xl font-semibold; }
-    h3 { @apply text-2xl font-medium; }
-    h4 { @apply text-xl font-normal; }
+  h1 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+  h3 {
+    @apply text-2xl font-medium;
+  }
+  h4 {
+    @apply text-xl font-normal;
+  }
 }

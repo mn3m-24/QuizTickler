@@ -7,7 +7,7 @@ const QuizNavigation = () => {
   const currentQuestionIndex = useQuizStore(
     (state) => state.currentQuestionIndex
   );
-  const answers = useQuizStore((state) => state.answers)
+  const answers = useQuizStore((state) => state.answers);
   const jumpToQuestion = useQuizStore((state) => state.jumpToQuestion);
   return (
     <div className="grid grid-cols-5 gap-2 sm:grid-cols-8 md:grid-cols-10">

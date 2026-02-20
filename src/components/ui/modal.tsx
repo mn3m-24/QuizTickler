@@ -10,13 +10,13 @@ interface ModalProps {
 }
 
 /* if !isOpen we don't show the dialog content, but it is rendered and returns null */
-const Modal = ({isOpen, onClose, className, children }: ModalProps) => {
+const Modal = ({ isOpen, onClose, className, children }: ModalProps) => {
   // handle ESC key
   useEffect(() => {
     if (!isOpen) return;
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-    }
+    };
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
@@ -26,7 +26,9 @@ const Modal = ({isOpen, onClose, className, children }: ModalProps) => {
     if (!isOpen) return;
     const original = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => {document.body.style.overflow = original};
+    return () => {
+      document.body.style.overflow = original;
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -39,10 +41,7 @@ const Modal = ({isOpen, onClose, className, children }: ModalProps) => {
     >
       {/* Modal Content */}
       <div
-        className={cn(
-          "bg-black/95",
-          className
-        )}
+        className={cn("bg-black/95", className)}
         onClick={(e) => e.stopPropagation()}
         role="alertdialog"
         aria-modal="true"

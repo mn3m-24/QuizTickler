@@ -40,9 +40,7 @@ const QuestionCard = () => {
           {currentQuestion.options.map((o, i) => {
             const id = `q-${currentQuestionIndex}-opt-${i}`;
             return (
-              <label
-                key={id}
-              >
+              <label key={id}>
                 <input
                   type="radio"
                   value={o}

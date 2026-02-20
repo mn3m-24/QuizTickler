@@ -6,9 +6,17 @@ interface SubmitModalProps {
   handleCloseModal: () => void;
   handleSubmit: () => void;
 }
-const SubmitModal = ({isModalOpen, handleCloseModal, handleSubmit}: SubmitModalProps) => {
+const SubmitModal = ({
+  isModalOpen,
+  handleCloseModal,
+  handleSubmit,
+}: SubmitModalProps) => {
   return (
-    <Modal isOpen={isModalOpen} onClose={handleCloseModal} className="mx-10 rounded p-4 flex flex-col justify-between">
+    <Modal
+      isOpen={isModalOpen}
+      onClose={handleCloseModal}
+      className="mx-10 rounded p-4 flex flex-col justify-between"
+    >
       <div className="p-6 flex flex-col">
         <h2 className="text-primary-foreground font-bold">Are you sure?</h2>
         <p className="text-primary-foreground">
