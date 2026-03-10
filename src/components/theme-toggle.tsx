@@ -9,7 +9,7 @@ const ThemeToggle = () => {
       variant="secondary"
       size="sm"
       className="px-2 py-2"
-      onClick={() => toggle()}
+      onClick={toggle}
     >
       {dark ? <Moon /> : <Sun />}
     </Button>

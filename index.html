@@ -8,11 +8,13 @@
     <link href="/src/style.css" rel="stylesheet" />
     <script>
       const theme = localStorage.getItem("theme");
-      const preferDark = document.matchMedia(
-        "(prefer-color-scheme: dark)"
+      const preferDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
       ).matches;
+      console.log(preferDark)
       if (theme === "dark" || (!theme && preferDark)) {
         document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
       }
     </script>
   </head>
